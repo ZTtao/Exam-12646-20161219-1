@@ -32,14 +32,12 @@ public class AddFilmServlet extends HttpServlet {
 					request.getRequestDispatcher("showAddFilm").forward(request, response);
 				}
 			}else{
-				if(sLanguageId != null)	//不是第一次请求
-					info = "字段为空";
+				info = "字段为空";
 				request.setAttribute("info", info);
 				request.getRequestDispatcher("showAddFilm").forward(request, response);
 			}
 		}catch(Exception e){
-			if(sLanguageId != null)	//不是第一次请求
-				info = "Exception:"+e.getMessage();
+			info = "Exception:"+e.getMessage();
 			request.setAttribute("info", info);
 			request.getRequestDispatcher("showAddFilm").forward(request, response);
 				

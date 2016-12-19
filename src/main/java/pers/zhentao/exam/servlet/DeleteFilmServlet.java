@@ -23,7 +23,7 @@ public class DeleteFilmServlet extends HttpServlet {
 				request.setAttribute("info", info);
 			}
 		}catch(Exception e){
-			info = "Exception:"+e.getMessage();
+			info = "存在外键约束，无法删除";
 			request.setAttribute("info", info);
 		}
 		request.getRequestDispatcher("showFilm").forward(request, response);

@@ -8,23 +8,27 @@
 <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
 <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
 <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-
 <title>Insert title here</title>
 </head>
 <body>
-<div style="margin:100px;">
-	<ul class="nav nav-pills">
+<div style="margin:15px;">
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header" style="width:80%;">
   		<c:choose>
   			<c:when test="${empty customer }">
-  				<li id="login"><a href="login.jsp">登录</a></li>
+  				<button onclick="window.location.href='login.jsp'" class="btn btn-default navbar-btn">登录</button>
   			</c:when>
   			<c:otherwise>
-  			  	<li id="logout"><a href="logout">退出登录</a></li>
+  			  	<button onclick="window.location.href='logout'" class="btn btn-default navbar-btn">退出登录</button>
   			</c:otherwise>
   		</c:choose>
-  		<li id="showFilm"><a href="showFilm">查看Film</a></li>
-  		<li id="addFilm"><a href="showAddFilm">添加Film</a></li>
-	</ul>
-	</div>
+  		<button onclick="window.location.href='showFilm'" class="btn btn-default navbar-btn">查看Film</button>
+  		<button onclick="window.location.href='showAddFilm'" class="btn btn-default navbar-btn">添加Film</button>
+      	<c:if test="${customer ne null }"><p class="navbar-text navbar-right">welcome,<span class="label" style="color:green;">${customer.firstName }</span></p></c:if>
+    </div>
+  </div>
+</nav>
+</div>
 </body>
 </html>

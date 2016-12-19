@@ -27,7 +27,7 @@ public class UpdateFilmServlet extends HttpServlet {
 				if(DAOFactory.getIFilmDAOInstance().updateFilm(film,Integer.parseInt(sLanguageId))){
 					request.getRequestDispatcher("showFilm").forward(request, response);
 				}else{
-					info = "添加失败";
+					info = "修改失败";
 					request.setAttribute("info", info);
 					request.setAttribute("id", filmId);
 					request.getRequestDispatcher("showUpdateFilm").forward(request, response);

@@ -26,7 +26,7 @@ public class LoginServlet extends HttpServlet{
 				try {
 					cus = DAOFactory.getIUserDAOInstance().login(firstName);
 					if(cus == null){
-						info.add("login faild");
+						info.add("user not exist");
 						request.setAttribute("info", info);
 						request.getRequestDispatcher("login.jsp").forward(request, response);
 					}else{
@@ -39,6 +39,9 @@ public class LoginServlet extends HttpServlet{
 					request.setAttribute("info", info);
 					request.getRequestDispatcher("login.jsp").forward(request, response);
 				}
+		}else{
+			request.setAttribute("info", info);
+			request.getRequestDispatcher("login.jsp").forward(request, response);
 		}
 	}
 	public void doPost(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException{
